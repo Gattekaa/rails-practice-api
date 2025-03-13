@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :books
+  resources :booksreports
+  resources :books do
+    get :generate_report, on: :collection
+  end
 
   devise_for :users, path: "", path_names: {
     sign_in: "login",

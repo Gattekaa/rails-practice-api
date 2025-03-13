@@ -5,13 +5,17 @@ class BooksController < ApplicationController
   # GET /books
   def index
     @books = current_user.books
-
-    render json: @books
   end
 
   # GET /books/1
   def show
     render json: @book
+  end
+
+  # GET /books/generate_report
+  def generate_report
+    GenerateBooksReportJob.perform_later(current_user)
+    render json: { message: "Generating books report" }
   end
 
   # POST /books

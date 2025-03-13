@@ -13,6 +13,10 @@ gem "devise"
 gem "devise-jwt"
 gem "jsonapi-serializer"
 
+gem "jbuilder", "~> 2.5"
+
+gem "sidekiq"
+
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
@@ -41,6 +45,8 @@ gem "rack-cors"
 
 
 group :development, :test do
+  gem "letter_opener"
+
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 

@@ -4,15 +4,11 @@ class BookcasesController < ApplicationController
 
   # GET /bookcases
   def index
-    puts current_user.to_json
     @bookcases = current_user.bookcases
-
-    render json: @bookcases
   end
 
   # GET /bookcases/1
   def show
-    render json: @bookcase
   end
 
   # POST /bookcases
