@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_13_014816) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_16_003845) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -27,11 +27,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_13_014816) do
     t.integer "rating"
     t.string "comment"
     t.bigint "bookcase_id", null: false
-    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["bookcase_id"], name: "index_books_on_bookcase_id"
-    t.index ["user_id"], name: "index_books_on_user_id"
   end
 
   create_table "booksreports", force: :cascade do |t|
@@ -59,6 +57,5 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_13_014816) do
 
   add_foreign_key "bookcases", "users"
   add_foreign_key "books", "bookcases"
-  add_foreign_key "books", "users"
   add_foreign_key "booksreports", "users"
 end

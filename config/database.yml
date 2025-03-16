@@ -24,3 +24,7 @@ default: &default
 development:
   <<: *default
   database: library_development
+
+test:
+  <<: *default
+  database: library_test
